@@ -2,6 +2,7 @@ package mains;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;
+import java.time.format.DateTimeFormatter;
 
 public class Date
 {
@@ -108,10 +109,11 @@ public class Date
 	public long[] getDiff(Date d)
 	{
 		long result[]=new long[3];
-		String s1 = year+"-"+month+"-"+date;
-		String s2 = d.year+"-0"+d.month+"-0"+d.date;
-		LocalDate date1 = LocalDate.parse(s1);
-		LocalDate date2 = LocalDate.parse(s2);
+		String str="-";
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("d-M-yyyy");
+		
+		LocalDate date1 = LocalDate.parse(Integer.toString(date)+str+Integer.toString(month)+str+Integer.toString(year), df);
+		LocalDate date2 = LocalDate.parse(Integer.toString(d.date)+str+Integer.toString(d.month)+str+Integer.toString(d.year), df);
 			
 			result[0]=ChronoUnit.DAYS.between(date1, date2);
 			result[1]=ChronoUnit.MONTHS.between(date1, date2);

@@ -45,8 +45,8 @@ public class DateTest
 		long expected[]={374,12,1};
 		long actual[]=date1.getDiff(date2);
 		assertEquals(expected[0],actual[0]);
-		//assertEquals(expected[1],actual[1]);
-		//assertEquals(expected[2],actual[2]);
+		assertEquals(expected[1],actual[1]);
+		assertEquals(expected[2],actual[2]);
 	}
 	
 }
